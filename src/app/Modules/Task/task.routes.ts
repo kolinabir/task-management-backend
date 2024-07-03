@@ -18,10 +18,6 @@ router.get('/:id', TaskController.getTaskById);
 router.put('/:id', TaskController.updateTaskById);
 router.delete('/:id', TaskController.deleteTaskById);
 //check if user is logged in then send auth middleware otherwise send TaskController.createNewTask
-router.post(
-  '/',
-  auth(USER_ROLE.user),
-  TaskController.createNewTask,
-);
+router.post('/', auth(USER_ROLE.user), TaskController.createNewTask);
 
 export const TaskRoute = router;

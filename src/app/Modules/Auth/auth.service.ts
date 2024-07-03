@@ -33,8 +33,7 @@ const loginUser = async (payload: TLoginUser) => {
     },
   );
 
-  const { password, createdAt, updatedAt, __v, ...user } =
-    userExists.toObject();
+  const { password, ...user } = userExists.toObject();
   return {
     user: user,
     token,
@@ -48,7 +47,7 @@ const changePasswordToServer = async (
   const userExists = await User.findOne({ userId: user.userId }).select(
     '+password',
   );
-  console.log(userExists, 'userExists');
+
   if (!userExists) {
     throw new AppError(httpStatus.NOT_FOUND, 'This User not found');
   }
