@@ -4,7 +4,7 @@ import { User } from './user.model';
 const createUserIntoDB = async (payload: TUser) => {
   const newPayload = {
     ...payload,
-    role: 'admin',
+    role: 'user',
   };
   const result = await User.create(newPayload);
   const { password, ...user } = result.toObject();

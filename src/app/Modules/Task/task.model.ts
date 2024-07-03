@@ -17,7 +17,7 @@ const taskSchema = new Schema<TTask>({
     default: 'pending',
   },
   assignedTo: {
-    type: [Schema.Types.ObjectId],
+    type: Schema.Types.ObjectId,
     ref: 'User',
   },
 });

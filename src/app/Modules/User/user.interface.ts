@@ -7,7 +7,7 @@ export interface TUser {
   name: string;
   email: string;
   password: string;
-  role?: 'admin';
+  role?: 'user';
 }
 export interface UserModel extends Model<TUser> {
   isUserExistsByUserName: (userId: string) => Promise<TUser>;

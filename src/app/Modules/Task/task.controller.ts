@@ -4,7 +4,11 @@ import sendResponse from '../../utils/sendRespone';
 import { TaskServices } from './task.service';
 
 const createNewTask = catchAsync(async (req, res) => {
-  const result = await TaskServices.createNewTaskIntoDB(req.body);
+  console.log(req.user);
+  const result = await TaskServices.createNewTaskIntoDB(
+    req.body,
+    req.user.userId,
+  );
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

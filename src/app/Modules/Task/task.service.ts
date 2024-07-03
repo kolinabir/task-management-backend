@@ -1,8 +1,17 @@
+import { User } from '../User/user.model';
 import { TTask } from './task.interface';
 import { Task } from './task.model';
 
-const createNewTaskIntoDB = async (payload: TTask) => {
-  const result = await Task.create(payload);
+const createNewTaskIntoDB = async (payload: TTask, userId: string) => {
+  let userIdMongodb = null;
+  const findUser = await User.findOne({ userId });
+  if (findUser) {
+    userIdMongodb = findUser._id;
+  }
+  const result = await Task.create({
+    ...payload,
+    assignedTo: userIdMongodb,
+  });
   return result;
 };
 
