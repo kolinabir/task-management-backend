@@ -33,6 +33,7 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
    ```
 
 ## API Endpoints
+## Full POSTMAN Documentation: https://documenter.getpostman.com/view/27392607/2sA3dxEriE
 
 ### Tasks
 
